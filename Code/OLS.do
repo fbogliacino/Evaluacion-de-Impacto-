@@ -13,3 +13,5 @@ gen y = 600 +  1000 * D - 80* W1 + 300* W2 + runiform(-100, 300)
 
 tabstat y if D==1, stat(mean)
 tabstat y if D==0, stat(mean)
+
+reg y D 
