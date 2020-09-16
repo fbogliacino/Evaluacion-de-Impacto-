@@ -25,7 +25,7 @@ clear
 		simulate OLS_beta1=r(beta1_hat) OLS_p1=r(p1) OLS_beta2=r(beta2_hat) OLS_p2=r(p2), reps(1000) : OLS, obs(100)
 
 
-		hist OLS_beta1, percent graphregion(lstyle(none) color(white)) xline(800) xtitle("Estimated Impact of education") normal
+		hist OLS_beta1, percent graphregion(lstyle(none) color(white)) xline(800) xtitle("Estimated Impact of education") 
 		hist OLS_beta2, percent graphregion(lstyle(none) color(white)) xline(0) xtitle("Estimated Impact of blue eyes") normal
 			count if OLS_p1<.05
 			count if OLS_p2<.05
