@@ -57,8 +57,15 @@ gen gap=0 if NJ==0
 replace gap=0 if NJ==1 & month==0 & wage>=5.05
 replace gap=(-wage+5.05)/wage if NJ==1 & month==0 & wage<5.05
 bysort iid: replace gap=gap[1] if gap==.
+egen empl_punto=mean(empl), by(iid)
+egen expost_punto=mean(expost), by(iid)
+egen NJ_expost_punto=mean(NJ_expost), by(iid)
+gen within_empl=empl-empl_punto
+gen within_expost=expost-expost_punto
+gen within_NJ_expost=NJ_expost-NJ_expost_punto
 
 reg empl NJ expost NJ_expost, rob
+reg within_empl within_expost within_NJ_expost, rob
 
 tsset iid month
 xtreg empl expost NJ_expost, fe vce(rob)
