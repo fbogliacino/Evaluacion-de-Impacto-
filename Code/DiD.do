@@ -65,7 +65,7 @@ gen within_expost=expost-expost_punto
 gen within_NJ_expost=NJ_expost-NJ_expost_punto
 
 reg empl NJ expost NJ_expost, rob
-reg within_empl within_expost within_NJ_expost, rob
+reg within_empl within_expost within_NJ_expost, vce(cl iid)
 
 tsset iid month
 xtreg empl expost NJ_expost, fe vce(rob)
