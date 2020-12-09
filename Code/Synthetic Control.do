@@ -20,6 +20,8 @@ tsset
 tab statefip if state=="Texas"
 
 synth bmprison bmprison(1985(1)1992), trunit(48) trperiod(1993) resultsperiod(1985(1)2000) figure
+*synth parole parole(1990) bmprison(1985(1)1992), trunit(48) trperiod(1993) resultsperiod(1985(1)2000) figure
+
 synth bmprison bmprison(1985(1)1992) income ur poverty black(1990) aidscapita(1990&1991&1992), ///
 			trunit(48) trperiod(1993) resultsperiod(1985(1)2000) figure
 
